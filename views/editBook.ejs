@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBrary - Edit book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/6952805ec5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0px;
+        }
+
+        form {
+            position: absolute;
+            background-color: #191919;
+            width: 30%;
+            height: 80%;
+            margin-left: 35%;
+            margin-top: 5%;
+            border-radius: 20px;
+        }
+        
+        form input {
+            background-color: #262626;
+            border: 0px;
+            outline: none;
+            padding: 10px;
+            color: white;
+            width: 250px;
+            height: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        #container {
+            margin-left: 20%;
+            margin-top: 15%;
+        }
+
+        button {
+            background-color: #69BB5B;
+            padding: 15px;
+            border: 0px;
+            outline: none;
+            width: 50%;
+            border-radius: 10px;
+            margin-left: 11%;
+            margin-top: 10%;
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+            cursor: pointer;
+        }
+
+        h1 {
+            padding-bottom: 50px;
+        }
+        
+        .headerLink {
+            text-decoration: none;
+            color: white;
+            font-size: 25px;
+        }
+
+        .headerLink:hover {
+            padding-bottom: 1px;
+            border-bottom: 1px solid white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <a class="headerLink" href="/books">< Go back</a>
+    </header>
+
+    <form method="POST">
+        <div id="container">
+            <input type="hidden" name="title" value="<%= book %>">
+            <h1><%= book %></h1>
+            <input type="text" name="description" placeholder="Description">
+            <input type="text" name="author" placeholder="Author">
+            <br>
+            <button type="submit">EDIT</button>
+        </div>
+    </form>
+    
+</body>
+</html>

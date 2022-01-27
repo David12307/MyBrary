@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBrary - Add a Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/6952805ec5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0px;
+        }
+
+        form {
+            position: absolute;
+            background-color: #191919;
+            width: 30%;
+            height: 80%;
+            margin-left: 35%;
+            margin-top: 5%;
+            border-radius: 20px;
+        }
+
+        form input {
+            background-color: #262626;
+            border: 0px;
+            outline: none;
+            padding: 10px;
+            color: white;
+            width: 250px;
+            height: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        #container {
+            margin-left: 20%;
+            margin-top: 15%;
+        }
+
+        a {
+            color: #F05454;
+            text-decoration: none;
+        }
+
+        button {
+            background-color: #69BB5B;
+            padding: 15px;
+            border: 0px;
+            outline: none;
+            width: 50%;
+            border-radius: 10px;
+            margin-left: 11%;
+            margin-top: 10%;
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            font-size: 25px;
+        }
+
+        .headerLink {
+            text-decoration: none;
+            color: white;
+            font-size: 25px;
+        }
+
+        .headerLink:hover {
+            padding-bottom: 1px;
+            border-bottom: 1px solid white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <a class="headerLink" href="/books">< Go back</a>
+    </header>
+
+
+    <form method="POST">
+        <div id="container">
+            <h1>Add a book</h1>
+            <input type="text" name="title" placeholder="Title">
+            <br>
+            <input type="text" name="author" placeholder="Author">
+            <br>
+            <input type="text" name="description" placeholder="Description">
+            <br>
+            <label for="cover">Use <a href="https://imgur.com/upload">imgur</a> for the cover.</label>
+            <br>
+            <input type="text" name="cover" placeholder="Cover URL">
+            <br>
+            <button type="submit">ADD</button>
+        </div>
+    </form>
+    
+</body>
+</html>
