@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     function checkNumber(n) {
         if (n === 2) {
             user.save()
-             .then(result => res.redirect('/'))
+             .then(result => res.redirect('/login'))
              .catch(err => console.log(err));
         } else {
             res.send('Username / Email already taken!');
