@@ -1,24 +1,32 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+var books = require('./books.js');
 
 router.get('/', (req, res) => {
-    try {
-        if (isValid === true) {
-            res.render('index', {username: currUser});
-        } else {
-            res.send('Access denied!');
-        }
-    }
-    catch (err) {
-        res.send('Access denied!');
-        console.log(err);
+    if (books.length === 0) {
+        res.redirect('/addBook');
+    } else {
+        res.render('index', {books: books});
     }
 });
 
 router.post('/', (req, res) => {
-    isValid = false;
-    currUser = '';
-    res.redirect('/login');
-})
+    var book = {
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+        cover: req.body.cover
+    }
+    
+    for (i = 0; i < books.length; i++) {
+        if (books[i].title == book.title) {
+            console.log(books[i].title);
+            books.splice(i, 1);
+        }
+    }
+
+    console.log(books);
+    res.redirect('/');
+});
 
 module.exports = router;

@@ -4,107 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBrary - Add a Book</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://kit.fontawesome.com/6952805ec5.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>MyBrary - Add a book</title>
 
     <style>
         body {
-            background-color: black;
-            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
             color: white;
-            margin: 0px;
-        }
-
-        form {
-            position: absolute;
-            background-color: #191919;
-            width: 30%;
-            height: 80%;
-            margin-left: 35%;
-            margin-top: 5%;
-            border-radius: 20px;
-        }
-
-        form input {
-            background-color: #262626;
-            border: 0px;
-            outline: none;
-            padding: 10px;
-            color: white;
-            width: 250px;
-            height: 40px;
-            margin-bottom: 20px;
-            border-radius: 10px;
         }
 
         #container {
-            margin-left: 20%;
-            margin-top: 15%;
+            background-color: #1C1C1C;
+            width: 30vw;
+            height: 70vh;
+            border-radius: 10px;
+            margin-top: 10vh;
         }
 
-        a {
-            color: #F05454;
-            text-decoration: none;
+        input {
+            width: 20vw;
+            margin-top: 2vh;
+            height: 6vh;
+            outline: none;
         }
 
-        button {
+        form button {
             background-color: #69BB5B;
-            padding: 15px;
+            border-radius: 5px;
             border: 0px;
             outline: none;
-            width: 50%;
-            border-radius: 10px;
-            margin-left: 11%;
-            margin-top: 10%;
-            font-weight: bold;
             font-size: 20px;
-            color: black;
+            color: white;
+            padding: 10px 50px 10px 50px;
+            margin-top: 5vh;
             cursor: pointer;
         }
 
-        button:hover {
-            font-size: 25px;
+        form button:hover {
+            border: 1px solid white;
         }
 
-        .headerLink {
+        #coverInput {
+            margin-top: -1vh;
+        }
+
+        form a {
             text-decoration: none;
             color: white;
-            font-size: 25px;
         }
 
-        .headerLink:hover {
-            padding-bottom: 1px;
+        form a:hover {
+            padding-bottom: 2px;
+            border-bottom: 1px solid white;
+        }
+
+        form p {
+            margin-left: -8vw;
+        }
+
+        header a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            padding-bottom: 2px;
             border-bottom: 1px solid white;
         }
     </style>
 
 </head>
 <body>
-
     <header>
-        <a class="headerLink" href="/books">< Go back</a>
+        <a href="/">Go back</a>
     </header>
 
-
-    <form method="POST">
+    <center>
         <div id="container">
-            <h1>Add a book</h1>
-            <input type="text" name="title" placeholder="Title">
-            <br>
-            <input type="text" name="author" placeholder="Author">
-            <br>
-            <input type="text" name="description" placeholder="Description">
-            <br>
-            <label for="cover">Use <a href="https://imgur.com/upload">imgur</a> for the cover.</label>
-            <br>
-            <input type="text" name="cover" placeholder="Cover URL">
-            <br>
-            <button type="submit">ADD</button>
+            <form method="POST">
+                <br>
+                <h1>Add a book</h1>
+                <input id="titleInput" type="text" name="title" placeholder="Title">
+                <br>
+                <input type="text" name="author" placeholder="Author">
+                <br>
+                <input type="text" name="year" placeholder="Year">
+                <br>
+                <p>Use <a target="_blank" href="https://imgur.com/upload">imgur</a> to upload the cover.</p>
+                <input id="coverInput" type="text" name="cover" placeholder="Cover URL">
+                <br>
+                <button type="submit">ADD</button>
+            </form>
         </div>
-    </form>
-    
+    </center>
+
 </body>
 </html>

@@ -1,33 +1,35 @@
 const express = require('express');
 const router = express.Router();
-var Book = require('../models/book');
+const books = require('./books.js');
 
 router.get('/:title', (req, res) => {
-    try {
-        if (isValid === true) {
-            Book.find({title: req.params.title, owner: currUser})
-             .then(result => {
-                 if (result.length === 1) {
-                    res.render('editBook', {book: req.params.title});
-                 } else {
-                    res.redirect('/');
-                 }
-             })
-             .catch(err => console.log(err));
-        } else {
-            res.send('Access denied!');
+    if (books.length === 0) {
+        res.redirect('/');
+    } else {
+        for(i = 0; i < books.length; i++) {
+            if (books[i].title == req.params.title) {
+                res.render('editBook', {book: books[i]});
+            }
         }
-    }
-    catch (err) {
-        res.send('Access denied!');
-        console.log(err);
     }
 });
 
 router.post('/:title', (req, res) => {
-    Book.findOneAndUpdate({ title: req.body.title, owner: currUser }, {description: req.body.description, author: req.body.author})
-     .then(result => res.redirect('/books'))
-     .catch(err => console.log(err));
+    var newBook = {
+        title: req.body.title,
+        author: req.body.author,
+        year: req.body.year,
+        cover: req.body.cover
+    };
+
+    for (i = 0; i < books.length; i++) {
+        if (books[i].title == req.params.title) {
+            books[i] = newBook;
+            res.redirect('/');
+        } else {
+            res.redirect('/editBook');
+        }
+    }
 });
 
 module.exports = router;

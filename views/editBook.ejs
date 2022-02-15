@@ -4,95 +4,98 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBrary - Edit book</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://kit.fontawesome.com/6952805ec5.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
+    <title>MyBrary - Edit Book</title>
     <style>
         body {
-            background-color: black;
-            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
             color: white;
-            margin: 0px;
-        }
-
-        form {
-            position: absolute;
-            background-color: #191919;
-            width: 30%;
-            height: 80%;
-            margin-left: 35%;
-            margin-top: 5%;
-            border-radius: 20px;
-        }
-        
-        form input {
-            background-color: #262626;
-            border: 0px;
-            outline: none;
-            padding: 10px;
-            color: white;
-            width: 250px;
-            height: 40px;
-            margin-bottom: 20px;
-            border-radius: 10px;
         }
 
         #container {
-            margin-left: 20%;
-            margin-top: 15%;
+            background-color: #1C1C1C;
+            width: 30vw;
+            height: 70vh;
+            border-radius: 10px;
+            margin-top: 10vh;
         }
 
-        button {
+        input {
+            width: 20vw;
+            margin-top: 2vh;
+            height: 6vh;
+            outline: none;
+        }
+
+        form button {
             background-color: #69BB5B;
-            padding: 15px;
+            border-radius: 5px;
             border: 0px;
             outline: none;
-            width: 50%;
-            border-radius: 10px;
-            margin-left: 11%;
-            margin-top: 10%;
-            font-weight: bold;
             font-size: 20px;
-            color: black;
+            color: white;
+            padding: 10px 50px 10px 50px;
+            margin-top: 5vh;
             cursor: pointer;
         }
 
-        h1 {
-            padding-bottom: 50px;
-        }
-        
-        .headerLink {
-            text-decoration: none;
-            color: white;
-            font-size: 25px;
+        form button:hover {
+            border: 1px solid white;
         }
 
-        .headerLink:hover {
-            padding-bottom: 1px;
+        #coverInput {
+            margin-top: -1vh;
+        }
+
+        form a {
+            text-decoration: none;
+            color: white;
+        }
+
+        form a:hover {
+            padding-bottom: 2px;
+            border-bottom: 1px solid white;
+        }
+
+        form p {
+            margin-left: -8vw;
+        }
+
+        header a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            padding-bottom: 2px;
             border-bottom: 1px solid white;
         }
     </style>
-
 </head>
 <body>
 
     <header>
-        <a class="headerLink" href="/books">< Go back</a>
+        <a href="/">Go back</a>
     </header>
 
-    <form method="POST">
+    <center>
         <div id="container">
-            <input type="hidden" name="title" value="<%= book %>">
-            <h1><%= book %></h1>
-            <input type="text" name="description" placeholder="Description">
-            <input type="text" name="author" placeholder="Author">
             <br>
-            <button type="submit">EDIT</button>
+            <h1>Edit book</h1>
+
+            <form method="post">
+                <input type="hidden" name="oldTitle" value="<%= book.title %>">
+                <input type="text" name="title" value="<%= book.title %>" placeholder="Title">
+                <input type="hidden" name="oldAuthor" value="<%= book.author %>">
+                <input type="text" name="author" value="<%= book.author %>" placeholder="Author">
+                <input type="hidden" name="oldYear" value="<%= book.year %>">
+                <input type="text" name="year" value="<%= book.year %>" placeholder="Year">
+                <input type="hidden" name="oldCover" value="<%= book.cover %>">
+                <input type="text" name="cover" value="<%= book.cover %>" placeholder="Cover">
+                <button type="submit">EDIT</button>
+            </form>
         </div>
-    </form>
+    </center>
     
 </body>
 </html>

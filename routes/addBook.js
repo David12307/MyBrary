@@ -1,34 +1,28 @@
-var express = require('express');
-var router = express.Router();
-var Book = require('../models/book');
+const express = require('express');
+const router = express.Router();
+var books = require('../routes/books');
 
 router.get('/', (req, res) => {
-    try {
-        if (isValid === true) {
-            res.render('addBook');
-        } else {
-            res.send('Access denied!');
-        }
-    }
-    catch (err) {
-        res.send('Access denied!');
-    }
+    res.render('addBook');
 });
 
 router.post('/', (req, res) => {
-    const book = new Book({
-        owner: currUser,
+    var book = {
         title: req.body.title,
         author: req.body.author,
-        description: req.body.description,
+        year: req.body.year,
         cover: req.body.cover
-    });
+    };
 
-    book.save()
-     .then(result => {
-        res.redirect('/books');
-     })
-     .catch(err => console.log(err));
+    for (i = 0; i < books.length; i++) {
+        if (books[i].title == book.title) {
+            books.splice(i, 1);
+        }
+    }
+
+    books.push(book);
+    console.log(book);
+    res.redirect('/');
 });
 
 module.exports = router;
